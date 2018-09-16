@@ -1,0 +1,22 @@
+{
+  "name": "nuxt-2",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "Adam Rosiak",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^1.0.0",
+    "vue-scrollto": "^2.13.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.0.1",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0"
+  }
+}
