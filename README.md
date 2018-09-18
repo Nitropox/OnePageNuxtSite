@@ -1,4 +1,4 @@
-# nuxt-2
+# nuxt-one-page-nuxt-site
 
 > Nuxt.js project
 
