@@ -1,12 +1,8 @@
 <template>
   <div>
-    <Header @navBoxToggle="displayNavBox = !displayNavBox" />
+    <Header/>
     <nav>
-      <NavBox 
-        :show="displayNavBox"
-        @close ="displayNavBox = false"
-        @dontClose ="displayNavBox= true"
-        />
+      <NavBox :show="$store.state.isBurgerClicked" />
     </nav>
     <nuxt/>
     <Footer/>
@@ -17,6 +13,7 @@
 import Header from '~/components/Navigation/Header.vue';
 import NavBox from '~/components/Navigation/NavBox.vue';
 import Footer from '~/components/Navigation/Footer.vue';
+import { mapState } from 'vuex'
 
 export default {
   components:{
@@ -24,12 +21,6 @@ export default {
     NavBox,
     Footer
   },
-  data(){
-    return{
-      displayNavBox: false
-    }
-  },
-  
 }
 </script>
 

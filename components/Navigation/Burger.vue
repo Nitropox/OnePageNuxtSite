@@ -1,23 +1,34 @@
 <template>
-   <div id="burger" @click="onClick" :class="{change: show}"> 
+   <div id="burger" @click="clickBurger" :class="{change: $store.state.isBurgerClicked}"> 
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
+        
     </div>  
 </template>
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
-    data(){
-        return{
-            show: false
-        }
-    },
+    mounted() {
+        this.$nextTick(function() {
+        window.addEventListener('resize', this.getWindowWidth);
+            //Init
+        this.getWindowWidth()
+    })},
     methods:{
-        onClick(){
-            this.show = !this.show ;
-            this.$emit('toggle');
+    //needed for responsive navbar
+    getWindowWidth(event) {
+        this.windowWidth = document.documentElement.clientWidth;
+        if(this.windowWidth >= 768) {
+           this.clickBurger();
         }
-    }
+      },
+       ...mapActions(['clickBurger'])
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.getWindowWidth);
+  },
 }
 </script>
 

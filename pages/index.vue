@@ -2,6 +2,11 @@
   <section class="container-onepage">
     <section id="section1" class="section-even">
       <h1>Section 1</h1>
+      <generic-button color='white' @button-clicked="onClick"> Hi</generic-button>
+      <form>
+        <input type="text" v-model.number="term">
+      </form>
+      <p>{{term}}</p>
     </section>
     <section id="section2" class="section-odd">
        <h1>Section 2</h1>
@@ -22,9 +27,21 @@
 </template>
 
 <script>
-
+import GenericButton from '@/components/UI/GenericButton'
 export default {
-
+  components:{
+    GenericButton
+  },
+ data(){
+   return{
+     term: ''
+   }
+ },
+ methods:{
+   onClick(){
+     console.log('button clicked');
+   }
+ }
 }
 </script>
 
@@ -47,6 +64,7 @@ $bgColor2: rgba(178, 219, 191, 1);
 .section-even{
   background-color: $bgColor1;
   height: 800px;
+  padding: 40px;
 }
 .section-odd{
   background-color: $bgColor2;

@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <a id="logo" href="#" v-scroll-to="'#logo'"><div class="logo">LOGO</div></a>
-        <Burger @toggle="$emit('navBoxToggle')"/>
+        <Burger/>
     </div>
 </template>
 

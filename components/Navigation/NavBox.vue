@@ -1,7 +1,7 @@
 <template>
     <transition name="slide-down">
     <div v-if="show" class="navBox">
-        <ul class="nav-list" @click="closeNav">
+        <ul class="nav-list" @click="closeMenu">
             <li class="nav-item"><a href="#" v-scroll-to="'#section1'">Link 1</a></li>
             <li class="nav-item"><a href="#" v-scroll-to="'#section2'">Link 2</a></li>
             <li class="nav-item"><a href="#" v-scroll-to="'#section3'">Link 3</a></li>
@@ -13,46 +13,26 @@
     </transition>
 </template>
 <script>
+import { mapActions } from 'vuex'
+
 export default {
     name: 'NavBox',
     props:{
-        show: false
-    },
-    data(){
-        return{
-        
+        show: {
+            type: Boolean,
+            default: 'false'
         }
     },
-     mounted() {
-    this.$nextTick(function() {
-      window.addEventListener('resize', this.getWindowWidth);
-      //Init
-      this.getWindowWidth()
-      
-  })},
-   
-  methods:{
-    //needed for responsive navbar
-    getWindowWidth(event) {
+       methods:{
+    ...mapActions(['clickBurger']),
+    closeMenu(){
         this.windowWidth = document.documentElement.clientWidth;
         if(this.windowWidth < 768) {
-            this.$emit('close');
-        }else{
-           this.$emit('dontClose');
-        }
-      },
-    closeNav(){
-        this.windowWidth = document.documentElement.clientWidth;
-        if(this.windowWidth < 768) {
-            this.$emit('close');
-        }else{
-          this.$emit('dontClose');
+          this.clickBurger();
         }
     }
   },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.getWindowWidth);
-  },
+  
 }
 </script>
 
