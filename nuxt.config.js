@@ -17,7 +17,12 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
+  /*
+  ** Router
+  */
+  router: {
+    base: '/nuxt-one-page-demo/'
+  },
   /*
   ** Customize the progress-bar color
   */
